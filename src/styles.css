@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
+
+:root {
+  --navy: #0B2545;
+  --blue-deep: #13315C;
+  --blue-mid: #2C5F9E;
+  --sky: #3E92CC;
+  --ice: #EAF2FB;
+  --white: #FFFFFF;
+  --amber: #E8A33D;
+  --green: #2E9E6B;
+  --red: #C0455B;
+  --ink: #5B7089;
+  --border: #E1E9F2;
+  --input-border: #D7E2EE;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-body);
+}
+
+button, input, select, textarea { font-family: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--sky) !important;
+}
+
+.btn-anim {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn-anim:hover { transform: translateY(-1px); }
+.btn-anim:active { transform: translateY(0); }
+
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 16px 40px rgba(11,37,69,0.12);
+  transform: translateY(-2px);
+}
+
+.nav-desktop { display: flex; }
+.nav-toggle { display: none; }
+.nav-mobile-panel { display: none; }
+
+.hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+.agency-grid { grid-template-columns: 280px 1fr; }
+.stat-grid { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-h1 { font-size: 34px !important; }
+}
+
+@media (max-width: 760px) {
+  .nav-desktop { display: none !important; }
+  .nav-toggle { display: flex !important; }
+  .nav-mobile-panel.open { display: flex !important; }
+  .agency-grid { grid-template-columns: 1fr !important; }
+  .stat-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-anim, .card-hover { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
